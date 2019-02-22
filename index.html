@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="js/jquery.js"></script>
+    <title>App Transporte</title>
+</head>
+
+<body>
+    <div class="menu">
+        <input type="checkbox" id="check" />
+        <label id="icone" for="check"><img src="../www/img/icone.png" /></label>
+        <div class="barra">
+            <nav>
+                <a href="">
+                    <div class="link">Perfil</div>
+                </a>
+                <a href="">
+                    <div class="link">Configurações</div>
+                </a>
+                <a href="">
+                    <div class="link">Sobre</div>
+                </a>
+            </nav>
+        </div>
+    </div>
+    <div id="mainPage" class="page page-active">
+        <div id="buttonadd">
+            <button id="add" class="targetPage" dt-page="#page1">+</button>
+        </div>
+    </div>
+    <div id="page1" class="page">
+        <div id="form">
+            <form>
+                <input type="text" name="produto" id="prod" placeholder="• Produto"><br>
+                <input type="text" name="quantidade" id="qtde" placeholder="• Quantidade"><br>
+                <input type="text" name="peso" id="kg" placeholder="• Peso (Kg)">
+            </form>
+        </div>
+        <div id="buttonAvancar">
+            <button type="button" id="avancar" class="targetPage" dt-page="#page2">></button>
+        </div>
+    </div>
+    <div id="page2" class="page">
+        <div id="form">
+            <form method="post">
+                <input type="text" name="deOnde" id="donde" placeholder="• De onde?"><br>
+                <input type="text" name="paraOnde" id="ponde" placeholder="• Para onde?">
+            </form>
+        </div>
+        <div id="buttonAvanVolt">
+            <button type="button" id="voltar" class="targetPage" dt-page="#page1"><</button> 
+            <button type="button" id="avancar" class="targetPage" dt-page="#page3">></button>
+        </div>
+    </div>
+    <div id="page3" class="page">
+        <div id="form">
+            <form method="post">
+                <input type="text" name="produto" id="prod" placeholder="• Produto"><br>
+                <input type="text" name="quantidade" id="qtde" placeholder="• Quantidade"><br>
+                <input type="text" name="peso" id="kg" placeholder="• Peso (Kg)"><br>
+                <input type="text" name="deOnde" id="donde" placeholder="• De onde?"><br>
+                <input type="text" name="paraOnde" id="ponde" placeholder="• Para onde?">
+            </form>
+            <p class="pConfirm">Confirmar?</p>
+        </div>
+        <div id="buttonCancelConfirm">
+            <button type="button" id="cancel" class="targetPage" dt-page="#mainPage">X</button>
+            <button type="button" id="confirm" class="targetPage" dt-page="#page4">✔</button>
+        </div>
+    </div>
+    <div id="page4" class="page">
+        <div id="procurando">
+            <p>Procurando caminhão...</p>
+        </div>
+        <div id="tempo">
+            <p class="targetPage" dt-page="#page5">00:00</p>
+        </div>
+    </div>
+    <div id="page5" class="page">
+        <div id="caminho">
+            <p>Caminhão a caminho...</p>
+        </div>
+        <div id="sobre">
+            <p>Sobre o motorista</p>
+        </div>
+        <div id="buttonadd">
+            <button type="button" id="add" class="targetPage" dt-page="#page6">+</button>
+        </div>
+    </div>
+    <div id="page6" class="page">
+        <div id="infos">
+            <p>Caminhão:</p>
+            <p>Placa:</p>
+            <p>Motorista:</p>
+            <p>CPF:</p>
+        </div>
+        <div id="confirma">
+            <p>Confirma as informações?</p>
+        </div>
+        <div id="buttonCancelConfirm">
+            <button type="button" id="cancel" class="targetPage" dt-page="#mainPage">X</button>
+            <button type="button" id="confirm" class="targetPage" dt-page="#page7">✔</button>
+        </div>
+    </div>
+    <div id="page7" class="page">
+        <div id="chegou">
+            <p>O produto chegou ao seu destino.</p>
+        </div>
+        <div id="tempo">
+            <p>Tempo: 00h 00min 00s</p>
+        </div>
+        <div id="buttonConfirmar">
+            <button type="button" id="confirmar" class="targetPage" dt-page="#mainPage">✔</button>
+        </div>
+    </div>
+</body>
+<script>
+        function ativaPage() {
+        $('.targetPage').click(function() {
+            let target = $(this).attr('dt-page');
+            $('.page').removeClass('page-active');
+            $(target).addClass('page-active');
+        })
+    }
+    ativaPage();
+    </script>
+</html>
